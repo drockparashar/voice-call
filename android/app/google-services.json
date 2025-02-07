@@ -1,0 +1,29 @@
+{
+    "project_info": {
+      "project_number": "775772248681",
+      "project_id": "oiceapp",
+      "storage_bucket": "oiceapp.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:775772248681:android:99f0953c872ee95517a0f8",
+          "android_client_info": {
+            "package_name": "com.voipchatapp"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyBHn8jjwqS-FM2Z3Tpc45xMNA_k8upcSsU"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
