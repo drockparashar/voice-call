@@ -4,7 +4,6 @@ import { View, Text, FlatList, TextInput, Button, StyleSheet } from 'react-nativ
 import { firestore, auth } from '../firebase';
 import {
   collection,
-  doc,
   query,
   orderBy,
   onSnapshot,
@@ -19,7 +18,19 @@ const ChatScreen = ({ route, navigation }) => {
   const currentUser = auth.currentUser;
 
   useEffect(() => {
-    navigation.setOptions({ title: chatName });
+    // Update header to include a "Call" button in addition to setting the title
+    navigation.setOptions({
+      title: chatName,
+      headerRight: () => (
+        <Button
+          title="Call"
+          onPress={() =>
+            navigation.navigate('Call', { chatId, chatName })
+          }
+        />
+      ),
+    });
+
     // Reference the "messages" subcollection within the specified chat document
     const messagesRef = collection(firestore, 'chats', chatId, 'messages');
     const messagesQuery = query(messagesRef, orderBy('createdAt', 'asc'));
@@ -61,7 +72,11 @@ const ChatScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList data={messages} keyExtractor={(item) => item.id} renderItem={renderItem} />
+      <FlatList
+        data={messages}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+      />
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}

@@ -7,6 +7,7 @@ import LoginScreen from './screens/LoginScren';
 import RegistrationScreen from './screens/RegistrationScreen';
 import ChatListScreen from './screens/ChatListScreen';
 import ChatScreen from './screens/ChatScreen';
+import CallScreen from './screens/CallScreen';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ const App = () => {
           component={ChatScreen} 
           options={{ title: 'Chat' }} 
         />
+        <Stack.Screen name="Call" component={CallScreen} options={{ title: 'Voice Call' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

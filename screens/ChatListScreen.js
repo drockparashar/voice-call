@@ -1,6 +1,6 @@
 // screens/ChatListScreen.js
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import { firestore } from '../firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
 
@@ -37,10 +37,12 @@ const ChatListScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Voice Call button */}
+      <Button title="Voice Call" onPress={() => navigation.navigate('Call')} />
+      
       {chats.length === 0 ? (
         <Text>
-          No chats available. Create a new chat in the backend or via an admin
-          panel.
+          No chats available. Create a new chat in the backend or via an admin panel.
         </Text>
       ) : (
         <FlatList
